@@ -1,4 +1,4 @@
-from roman_funcs import to_roman, dividir_en_digitos, arabigo_a_romano
+from roman_funcs import to_roman, dividir_en_digitos, arabigo_a_romano, divide_en_miles
 
 def test_romanos_simples():
     assert to_roman(1) == 'I'
@@ -38,5 +38,16 @@ def test_dividir_en_digitos():
     assert dividir_en_digitos(100) == [0, 100, 0, 0]
 
 def test_cualquier_romano():
-
     assert arabigo_a_romano(1999) == "MCMXCIX"
+
+def xtest_romano_mayor_de_3999():
+    assert arabigo_a_romano(4127) == "IV*CXXVII"
+
+def test_divide_en_miles():
+    assert divide_en_miles(4127) == [127, 4]
+    assert divide_en_miles(3127) == [3127]
+
+def test_divide_en_miles_pero_con_millones():
+    assert divide_en_miles(4123234) == [234, 123, 4]
+    assert divide_en_miles(3123234) == [234, 3123]
+    
